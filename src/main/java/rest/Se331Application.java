@@ -17,7 +17,7 @@ public class Se331Application {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000", "http://44.210.136.198:8001")
+                        .allowedOrigins("http://localhost:4444", "http://44.210.136.198:8001")
                         .exposedHeaders("x-total-count");
 
             }

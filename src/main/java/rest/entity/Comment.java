@@ -4,26 +4,22 @@ import lombok.*;
 import rest.security.entity.User;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @Builder
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Doctor {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Exclude
     Long id;
-    String name;
-    String surname;
-
-    @OneToMany(mappedBy = "doctor")
-    @Builder.Default
-    List<Patients> patients = new ArrayList<>();
+    String comment;
 
     @OneToOne
-    User user;
+    Doctor doctor;
+
+    @ManyToOne
+    Patients patients;
 }

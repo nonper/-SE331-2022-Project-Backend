@@ -5,16 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DoctorDTO {
+public class PatComDTO {
     Long id;
-    String name;
-    String surname;
-    List<DoctorsPatientlistDTO> patients = new ArrayList<>();
+    String comment;
+    DoctorForPaDTO doctor;
 }

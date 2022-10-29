@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PatientAuthhDTO {
+public class PatientAuthDTO {
     Long id;
     String name;
     String surname;

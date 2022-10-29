@@ -1,8 +1,11 @@
 package rest.entity;
 
 import lombok.*;
+import rest.security.entity.User;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
@@ -19,11 +22,23 @@ public class Patients {
     String homeTown;
     Long age;
     String vaccinateStatus;
-    String firstDose;
-    String secondDose;
     String firstDate;
     String secondDate;
 
+    @ManyToMany
+    @Builder.Default
+    List<Vaccine> vaccines = new ArrayList<>();
+
+    @OneToMany(mappedBy = "patients")
+    @Builder.Default
+    List<Comment> comment = new ArrayList<>();
+
     @ManyToOne
     Doctor doctor;
+
+    @OneToOne
+    User user;
+
+    @ElementCollection
+    List<String> imageUrls;
 }

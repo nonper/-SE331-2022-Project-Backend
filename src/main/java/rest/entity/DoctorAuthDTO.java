@@ -11,15 +11,8 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DoctorsPatientlistDTO {
+public class DoctorAuthDTO {
     Long id;
     String name;
-    String surname;
-    String homeTown;
-    Long age;
-    String vaccinateStatus;
-    List<Vaccine> vaccines;
-    List<Comment> comments;
-    String firstDate;
-    String secondDate;
+    List<String> authorities;
 }

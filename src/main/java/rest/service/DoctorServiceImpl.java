@@ -17,4 +17,14 @@ public class DoctorServiceImpl implements DoctorService{
     public List<Doctor> getAllDoctor() {
         return doctorDao.getDoctor(Pageable.unpaged()).getContent();
     }
+
+    @Override
+    public Doctor getDoctor(Long id) {
+        return doctorDao.findByID(id);
+    }
+
+    @Override
+    public Doctor save(Doctor doctor) {
+        return doctorDao.save(doctor);
+    }
 }

@@ -13,3 +13,11 @@ spring:
   servlet:
     multipart:
       max-file-size: 10MB
+jwt:
+  header: Authorization
+  secret: "J@NcRfUjXnZr4u7x!A%D*G-KaPdSgVkYp3s5v8y/B?E(H+MbQeThWmZq4t7w9z$C"
+  expiration: 604800
+  route:
+    authentication:
+      path: auth
+      refresh: refresh

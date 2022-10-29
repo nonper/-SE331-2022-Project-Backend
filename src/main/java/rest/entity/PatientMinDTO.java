@@ -5,21 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DoctorsPatientlistDTO {
+public class PatientMinDTO {
     Long id;
     String name;
     String surname;
-    String homeTown;
-    Long age;
-    String vaccinateStatus;
-    List<Vaccine> vaccines;
-    List<Comment> comments;
-    String firstDate;
-    String secondDate;
 }

@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -16,9 +18,10 @@ public class PatientsDTO {
     String homeTown;
     Long age;
     String vaccinateStatus;
-    String firstDose;
-    String secondDose;
+    List<PatVacDTO> vaccines;
+    List<PatComDTO> comment;
     String firstDate;
     String secondDate;
     DoctorForPaDTO doctor;
+    List<String> imageUrls;
 }
