@@ -3,6 +3,7 @@ package rest.security.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,6 +16,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import rest.entity.Patients;
 import rest.repository.PatientsRepository;
 import rest.entity.Doctor;
@@ -134,6 +136,21 @@ public class AuthenticationRestController {
             return ResponseEntity.ok(new JwtAuthenticationResponse(refreshedToken));
         } else {
             return ResponseEntity.badRequest().body(null);
+        }
+    }
+
+    @GetMapping("/users")
+    ResponseEntity<?> getDoctors() {
+        return ResponseEntity.ok(LabMapper.INSTANCE.getUserDTO(userService.getUsers()));
+    }
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<?> getEvent(@PathVariable("id") Long id) {
+        User output = userService.findById(id);
+        if (output != null) {
+            return ResponseEntity.ok(LabMapper.INSTANCE.getUserDTO(output));
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The given id is not found");
         }
     }
 

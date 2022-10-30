@@ -37,4 +37,6 @@ public interface LabMapper {
     DoctorAuthDTO getDoctorAuthDTO(Doctor doctor);
 
     UserDTO getUserDTO(User user);
+
+    List<UserDTO> getUserDTO(List<User> user);
 }

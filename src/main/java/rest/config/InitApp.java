@@ -128,8 +128,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Horne")
                 .age(52L)
                 .vaccinateStatus("Second dose")
-                .firstDate("1/6/2021")
-                .secondDate("1/8/2021")
+                .firstDate("01-06-2021")
+                .secondDate("01-08-2021")
                 .homeTown("8657 Prairie Drive Reynoldsburg, OH 43068")
                 .build());
         tempPat.getVaccines().add(vac1);
@@ -147,8 +147,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Hastings")
                 .age(16L)
                 .vaccinateStatus("Second dose")
-                .firstDate("9/6/2021")
-                .secondDate("1/8/2021")
+                .firstDate("09-06-2021")
+                .secondDate("01-08-2021")
                 .homeTown("9728 North Ridgewood Drive Randallstown, MD 21133")
                 .build());
         tempPat.getVaccines().add(vac2);
@@ -166,8 +166,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Dickens")
                 .age(37L)
                 .vaccinateStatus("Second dose")
-                .firstDate("19/3/2021")
-                .secondDate("11/1/2021")
+                .firstDate("19-03-2021")
+                .secondDate("11-01-2021")
                 .homeTown("7826 Prince Rd. Newark, NJ 07103")
                 .build());
         tempPat.getComment().add(comment2);
@@ -188,8 +188,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Lees")
                 .age(21L)
                 .vaccinateStatus("Second dose")
-                .firstDate("13/6/2021")
-                .secondDate("12/8/2021")
+                .firstDate("13-06-2021")
+                .secondDate("12-08-2021")
                 .homeTown("231 Bedford Street Canal Winchester, OH 43110")
                 .build());
         tempPat.getVaccines().add(vac1);
@@ -207,7 +207,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Rennie")
                 .age(65L)
                 .vaccinateStatus("First dose")
-                .firstDate("19/2/2021")
+                .firstDate("19-02-2021")
                 .homeTown("7578 NW. Green Street Taunton, MA 02780")
                 .build());
         tempPat.getVaccines().add(vac3);

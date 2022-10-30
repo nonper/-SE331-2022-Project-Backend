@@ -19,7 +19,7 @@ public class DoctorsPatientlistDTO {
     Long age;
     String vaccinateStatus;
     List<Vaccine> vaccines;
-    List<Comment> comments;
+    List<DocComDTO> comment;
     String firstDate;
     String secondDate;
 }
