@@ -6,14 +6,8 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import rest.entity.Comment;
-import rest.entity.Doctor;
-import rest.entity.Patients;
-import rest.entity.Vaccine;
-import rest.repository.CommentRepository;
-import rest.repository.DoctorRepository;
-import rest.repository.PatientsRepository;
-import rest.repository.VaccineRepository;
+import rest.entity.*;
+import rest.repository.*;
 import rest.security.entity.Authority;
 import rest.security.entity.AuthorityName;
 import rest.security.entity.User;
@@ -45,10 +39,21 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    AdminRepository adminRepository;
+
     @Override
     @Transactional
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         addUser();
+        Admin admin1;
+        admin1 = adminRepository.save(Admin.builder()
+                .name("Admin")
+                .surname("Admin")
+                .user(user1)
+                .build());
+        user1.setAdmin(admin1);
+        user1.setFirstname(admin1.getName());
         Vaccine vac1, vac2, vac3, vac4, vac5, vac6;
         vac1 = vaccineRepository.save(Vaccine.builder()
                 .vaccineName("Pfizer")
@@ -76,7 +81,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         comment2 = commentRepository.save(Comment.builder()
                 .comment("Do more an exercises.")
                 .build());
-        Doctor doc1, doc2, doc3;
+
+        Doctor doc1, doc2;
         doc1 = doctorRepository.save(Doctor.builder()
                 .name("Supachok")
                 .surname("Jrirarojkul")
@@ -93,13 +99,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         comment2.setDoctor(doc2);
         user5.setDoctor(doc2);
         user5.setFirstname(doc2.getName());
-        doc3 = doctorRepository.save(Doctor.builder()
-                .name("admin")
-                .surname("admin")
-                .user(user1)
-                .build());
-        user1.setDoctor(doc3);
-        user1.setFirstname(doc3.getName());
+
         Patients tempPat = null;
         tempPat = patientsRepository.save(Patients.builder()
                 .name("Jevan")
