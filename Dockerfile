@@ -1,5 +1,5 @@
-FROM openjdk:16-jdk-alpine
-RUN addgroup -S spring && adduser -S -spring -G spring
+FROM openjdk:17-alpine
+RUN addgroup -S spring && adduser -S sping -G spring
 EXPOSE 8080
 
 ENV JAVA_PROFILE prod
@@ -8,4 +8,5 @@ COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY ${DEPENDENCY}/META-INF /app/META-INF
 COPY ${DEPENDENCY}/BOOT-INF/classes /app
 
-ENTRYPOINT ["java",  "-Dspring.profiles.active=${JAVA_PROFILE}",\"-cp","app:app/lib/*","se331.lab.rest.Lab07Application"]
+ENTRYPOINT ["java", "-Dspring.profiles.active=${JAVA_PROFILE}",\
+            "-cp","app:app/lib/*","se331.rest.Se331BackEndProjectApplication"]
